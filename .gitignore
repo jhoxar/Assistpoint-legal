@@ -1,0 +1,40 @@
+# Secrets — this repo is PUBLIC. Never commit .env; it holds
+# KIE_API_KEY and NETLIFY_AUTH_TOKEN.
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Netlify
+.netlify/
+
+# Asset generation scratch: API masters/logs and the per-frame PNG sequences
+# the alpha extraction writes (242 files, ~1GB). The finished deliverables
+# live in public/media and are committed.
+assets-src/
+temporary screenshots/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Test output
+test-results/
+playwright-report/
+blob-report/
+
+# OS / editor
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-error.log*
+.vscode/
+.idea/

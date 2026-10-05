@@ -1,0 +1,561 @@
+{
+  "navDefs": [
+    [
+      "home",
+      "Home"
+    ],
+    [
+      "rcm",
+      "RCM"
+    ],
+    [
+      "care",
+      "CCM / RPM / PCM"
+    ],
+    [
+      "ops",
+      "Operations"
+    ],
+    [
+      "hospital",
+      "Hospital & Rural"
+    ],
+    [
+      "serve",
+      "Who We Serve"
+    ],
+    [
+      "team",
+      "Who We Are"
+    ],
+    [
+      "contact",
+      "Contact"
+    ]
+  ],
+  "topMeta": {
+    "serve": [
+      "◎",
+      "Organizations across the care continuum"
+    ],
+    "team": [
+      "☺",
+      "The leaders behind AssistPoint"
+    ],
+    "contact": [
+      "✉",
+      "Book a no-obligation conversation"
+    ]
+  },
+  "svcDefs": [
+    {
+      "icon": "↗",
+      "title": "Revenue Cycle Management",
+      "desc": "End-to-end billing, coding, claims, payment posting, A/R, denials and reporting.",
+      "link": "Explore RCM",
+      "page": "rcm"
+    },
+    {
+      "icon": "♡",
+      "title": "CCM • RPM • PCM",
+      "desc": "Structured care-management programs that extend support beyond the office visit.",
+      "link": "Explore Care Management",
+      "page": "care"
+    },
+    {
+      "icon": "⚙",
+      "title": "Operations & Consulting",
+      "desc": "Experienced leadership and operational strategy for growth, transition and performance improvement.",
+      "link": "Explore Operations",
+      "page": "ops"
+    },
+    {
+      "icon": "▥",
+      "title": "Financial & Strategic Support",
+      "desc": "Planning, analytics, financial visibility and data-driven decision support.",
+      "link": "Explore Strategy",
+      "page": "ops"
+    }
+  ],
+  "careDefs": [
+    {
+      "key": "CCM",
+      "full": "Chronic Care Management",
+      "icon": "♡",
+      "desc": "Ongoing coordination for patients managing multiple chronic conditions.",
+      "short": "Ongoing coordination for patients managing multiple chronic conditions."
+    },
+    {
+      "key": "RPM",
+      "full": "Remote Patient Monitoring",
+      "icon": "⌁",
+      "desc": "Connected-device monitoring that keeps clinical data visible between visits.",
+      "short": "Connected devices bring physiologic data into the care team's workflow."
+    },
+    {
+      "key": "PCM",
+      "full": "Principal Care Management",
+      "icon": "◎",
+      "desc": "Focused care management for one complex chronic condition.",
+      "short": "Focused management for one complex chronic condition."
+    }
+  ],
+  "flowDefs": [
+    [
+      "Assess",
+      "Understand current state"
+    ],
+    [
+      "Identify",
+      "Find opportunities"
+    ],
+    [
+      "Plan",
+      "Prioritize the work"
+    ],
+    [
+      "Implement",
+      "Execute with teams"
+    ],
+    [
+      "Measure",
+      "Track performance"
+    ],
+    [
+      "Optimize",
+      "Improve continuously"
+    ]
+  ],
+  "rcmDefs": [
+    [
+      "✓",
+      "Verify & Authorize",
+      "Eligibility · Benefits · Prior Auth"
+    ],
+    [
+      "#",
+      "Code & Submit",
+      "Charge Capture · Coding · Claims"
+    ],
+    [
+      "$",
+      "Post & Reconcile",
+      "Payments · Adjustments · Balances"
+    ],
+    [
+      "↗",
+      "Resolve & Optimize",
+      "Denials · A/R · Reporting"
+    ]
+  ],
+  "rcmChips": [
+    [
+      "Eligibility",
+      "Benefits",
+      "Prior Auth"
+    ],
+    [
+      "Charge Capture",
+      "Coding",
+      "Claims"
+    ],
+    [
+      "Payments",
+      "Adjustments",
+      "Balances"
+    ],
+    [
+      "Denials",
+      "A/R",
+      "Reporting"
+    ]
+  ],
+  "chain": [
+    "Patient Access",
+    "Eligibility",
+    "Authorization",
+    "Coding",
+    "Charge Entry",
+    "Claims",
+    "Payment Posting",
+    "A/R",
+    "Denials",
+    "Reporting"
+  ],
+  "team": [
+    {
+      "img": "https://www.assistpointclinical.com/assets/img/susan-popp.webp",
+      "name": "Susan Popp",
+      "role": "Healthcare Finance & Rural Hospital Leadership",
+      "bio": "Nearly 30 years in finance, including extensive healthcare experience and direct rural-hospital CFO leadership.",
+      "more": "Her background supports organizations needing stronger financial discipline, practical hospital leadership and insight into the realities of rural healthcare operations."
+    },
+    {
+      "img": "https://www.assistpointclinical.com/assets/img/becky-speight.webp",
+      "name": "Becky Speight",
+      "role": "Finance, Operations & Turnaround Leadership",
+      "bio": "20+ years of CFO and administrator experience across hospitals and health networks, with leadership across revenue cycle, HIM, pharmacy, IT and finance.",
+      "more": "Her cross-functional leadership experience brings a broad operational perspective to organizations facing financial pressure, transition or performance improvement initiatives."
+    },
+    {
+      "img": "https://www.assistpointclinical.com/assets/img/jennifer-reaves.webp",
+      "name": "Jennifer Reaves",
+      "role": "Revenue Cycle & Billing Operations",
+      "bio": "25+ years in multi-specialty billing and revenue cycle, including infusion, specialty drug billing and denial resolution across Medicare and commercial payers.",
+      "more": "Her focus includes practical revenue-cycle workflows, specialty and infusion billing, payer follow-up, team development and operational processes designed to move claims from patient access through payment."
+    }
+  ],
+  "cmp": [
+    [
+      "Primary focus",
+      "Coordinating multiple chronic conditions",
+      "Monitoring physiologic data remotely",
+      "Managing one complex chronic condition"
+    ],
+    [
+      "Patient interaction",
+      "Ongoing care-management communication",
+      "Device data plus treatment-management interaction",
+      "Focused disease-specific care management"
+    ],
+    [
+      "Technology",
+      "Care plan/EHR and communication tools",
+      "Connected medical device that transmits data",
+      "Care plan/EHR and communication tools"
+    ],
+    [
+      "Practice opportunity",
+      "Extend coordinated care between visits",
+      "Add objective home-based physiologic monitoring",
+      "Provide focused support for a high-risk condition"
+    ]
+  ],
+  "programs": [
+    {
+      "tag": "ONGOING COORDINATION",
+      "key": "CCM",
+      "full": "Chronic Care Management",
+      "what": "Ongoing care management for patients with multiple chronic conditions. Under Medicare, CCM generally applies to patients with two or more chronic conditions expected to last at least 12 months or until death and that create significant health risk.",
+      "bullets": [
+        "Comprehensive care planning",
+        "Ongoing non-face-to-face coordination",
+        "Medication and treatment follow-up",
+        "Coordination among providers and resources",
+        "Regular patient/caregiver support"
+      ],
+      "example": "A patient with diabetes, hypertension and COPD who needs ongoing coordination across several providers."
+    },
+    {
+      "tag": "CONNECTED DEVICE MONITORING",
+      "key": "RPM",
+      "full": "Remote Patient Monitoring",
+      "what": "Collection and clinical use of physiologic data from a connected medical device. Medicare describes RPM for acute or chronic conditions using devices that digitally transmit data for review and treatment management.",
+      "bullets": [
+        "Device setup and patient education",
+        "Connected physiologic data collection",
+        "Clinical review of transmitted information",
+        "Treatment-management communication",
+        "Potential earlier identification of concerning trends"
+      ],
+      "example": "A patient with hypertension using a connected blood-pressure cuff that sends readings to the care team."
+    },
+    {
+      "tag": "SINGLE COMPLEX CONDITION",
+      "key": "PCM",
+      "full": "Principal Care Management",
+      "what": "Disease-specific care management focused on one complex chronic condition. CMS describes PCM as support for a single complex condition that can place the patient at risk of hospitalization, decline or death.",
+      "bullets": [
+        "Disease-specific care planning",
+        "Focused coordination with specialists",
+        "Ongoing condition-management support",
+        "Medication and treatment coordination",
+        "Patient/caregiver communication"
+      ],
+      "example": "A patient whose primary ongoing management need centers on one complex condition such as advanced heart failure."
+    }
+  ],
+  "pillars": [
+    [
+      "$",
+      "RCM",
+      "Revenue Cycle Performance",
+      "rcm"
+    ],
+    [
+      "⌁",
+      "CCM • RPM • PCM",
+      "Care Beyond the Visit",
+      "care"
+    ],
+    [
+      "⚙",
+      "Operations",
+      "Practical Execution",
+      "ops"
+    ],
+    [
+      "↗",
+      "Strategy",
+      "Built for Sustainable Growth",
+      "ops"
+    ]
+  ],
+  "difference": [
+    [
+      "◉",
+      "Revenue Visibility",
+      "Clearer workflows, reporting and follow-up designed to help leadership understand where revenue is moving—and where it is getting stuck."
+    ],
+    [
+      "✓",
+      "Operational Execution",
+      "Practical support that connects strategy to workflows, accountability, team structure and implementation."
+    ],
+    [
+      "♡",
+      "Patient-Centered Systems",
+      "Programs and processes designed to support financial sustainability without losing sight of patient access, engagement and care."
+    ]
+  ],
+  "serveTiles": [
+    [
+      "https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=900&q=80",
+      "Physician Practices"
+    ],
+    [
+      "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=80",
+      "Hospitals & Rural Health"
+    ],
+    [
+      "https://www.lifetreehub.com/images/infusion-center.jpg",
+      "Infusion Centers"
+    ]
+  ],
+  "rcmCards": [
+    [
+      "✓",
+      "Front-End Revenue Integrity",
+      "Eligibility verification, referral coordination, authorization support and accurate patient information before services are rendered."
+    ],
+    [
+      "⌁",
+      "Coding, Charging & Claims",
+      "Accurate coding and charge capture, claim preparation, clean submission and reconciliation."
+    ],
+    [
+      "$",
+      "A/R, Denials & Appeals",
+      "Focused follow-up, denial analysis, appeals, secondary follow-up and actionable reporting."
+    ],
+    [
+      "▥",
+      "Payment Posting",
+      "Accurate payment and adjustment posting with reconciliation workflows that keep balances reliable."
+    ],
+    [
+      "◎",
+      "Patient Billing",
+      "Clear patient-balance workflows designed to support collections while maintaining a professional patient experience."
+    ],
+    [
+      "↗",
+      "Reporting & Analytics",
+      "Transparent performance reporting that helps leadership understand collections, A/R, denials and workflow opportunities."
+    ]
+  ],
+  "specialties": [
+    [
+      "＋",
+      "Primary Care",
+      "Preventive and E/M billing, care-management integration, payer requirements, referral workflows, denials and A/R follow-up."
+    ],
+    [
+      "IV",
+      "Infusion & Specialty Drugs",
+      "Benefits verification, authorization coordination, J-code and drug-unit review, administration coding, wastage modifiers, specialty pharmacy workflows and high-dollar A/R."
+    ],
+    [
+      "H",
+      "Hospital & Facility",
+      "Operational and financial workflow support across complex facility environments, with attention to documentation, reimbursement and performance visibility."
+    ],
+    [
+      "◎",
+      "Multi-Specialty",
+      "Standardized workflows across service lines while preserving specialty-specific coding, payer and authorization requirements."
+    ]
+  ],
+  "infusionFeatures": [
+    [
+      "Benefits & Clearance",
+      "Coverage, patient responsibility, referrals and prior authorization."
+    ],
+    [
+      "Drug Path",
+      "Buy-and-bill or specialty-pharmacy workflow coordination."
+    ],
+    [
+      "Coding & Claim Accuracy",
+      "J-codes, units, administration codes, modifiers and documentation alignment."
+    ],
+    [
+      "Payment, Denials & A/R",
+      "High-dollar claim follow-up, underpayments, payer edits and reporting."
+    ]
+  ],
+  "infusionFlow": [
+    [
+      "✓",
+      "Benefits",
+      "Coverage & responsibility"
+    ],
+    [
+      "A",
+      "Authorization",
+      "Referral & payer rules"
+    ],
+    [
+      "Rx",
+      "Drug Path",
+      "Buy & bill or SP"
+    ],
+    [
+      "#",
+      "Code",
+      "Drug, units & admin"
+    ],
+    [
+      "$",
+      "Claim",
+      "Submit & post"
+    ],
+    [
+      "↗",
+      "Follow-Up",
+      "Denials, A/R & reporting"
+    ]
+  ],
+  "careSteps": [
+    "Identify Candidates",
+    "Verify Eligibility",
+    "Obtain Consent",
+    "Enroll",
+    "Care Plan / Setup",
+    "Engage & Monitor",
+    "Document",
+    "Bill & Report"
+  ],
+  "forPatients": [
+    "More consistent support between office visits",
+    "Improved care coordination and communication",
+    "Additional attention to chronic-condition goals",
+    "For RPM, objective physiologic data available to the care team"
+  ],
+  "forPractices": [
+    "Structured care-management workflows",
+    "Additional patient touchpoints",
+    "Better visibility into ongoing patient needs",
+    "Potential reimbursable services when requirements are met"
+  ],
+  "hospitalCards": [
+    [
+      "☺",
+      "Leadership Support",
+      "Interim or project-based operational support during transition, growth or performance improvement."
+    ],
+    [
+      "↗",
+      "Financial Performance",
+      "Budgeting, forecasting, cash-flow visibility and revenue-performance support."
+    ],
+    [
+      "⟳",
+      "Revenue Cycle",
+      "Workflow review, billing operations, denials, A/R and reporting across the revenue cycle."
+    ],
+    [
+      "▥",
+      "Analytics & Reporting",
+      "Leadership dashboards and operational visibility to support timely decisions."
+    ]
+  ],
+  "hospitalFeatures": [
+    "Operational assessment and priority setting",
+    "Leadership and team accountability structures",
+    "Revenue and financial performance visibility",
+    "Workflow redesign and implementation support"
+  ],
+  "opsCards": [
+    [
+      "☺",
+      "Executive & Operational Support",
+      "Interim executive leadership, strategy execution, board reporting and operational performance insight."
+    ],
+    [
+      "▥",
+      "Strategic Planning & Analytics",
+      "Planning facilitation, performance dashboards, community needs assessment and data-driven decision support."
+    ],
+    [
+      "$",
+      "Financial Strength",
+      "Budgeting, forecasting, cash-flow planning, grant-budget support and revenue optimization."
+    ],
+    [
+      "⛨",
+      "Access & Compliance",
+      "Patient access workflows, eligibility and referral coordination, policy development and readiness support."
+    ],
+    [
+      "♡",
+      "Population Health",
+      "Care-gap identification, outreach, registries, risk stratification and quality performance support."
+    ],
+    [
+      "⚿",
+      "Technology & Security",
+      "EHR optimization, reporting, data validation, cybersecurity planning and digital-health implementation support."
+    ]
+  ],
+  "orgs": [
+    [
+      "✚",
+      "FQHCs & Community Health"
+    ],
+    [
+      "🏥",
+      "Critical Access Hospitals"
+    ],
+    [
+      "▦",
+      "Nonprofit Hospitals"
+    ],
+    [
+      "⌂",
+      "Rural Health Clinics"
+    ],
+    [
+      "♡",
+      "Behavioral Health"
+    ],
+    [
+      "＋",
+      "Multi-Specialty & Primary Care"
+    ],
+    [
+      "↗",
+      "Growth & Turnaround Organizations"
+    ],
+    [
+      "◎",
+      "Value-Based Care Organizations"
+    ]
+  ],
+  "careChainLabels": [
+    "PATIENT",
+    "CARE TEAM",
+    "CARE PLAN",
+    "ONGOING SUPPORT"
+  ]
+}

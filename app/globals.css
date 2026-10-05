@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./site.css";
+@import "./pages.css";
+
+/* ---------------------------------------------------------------------------
+   Base — the artifact's entire global stylesheet was 5 rules. These are them.
+   --------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* <em> is repurposed as the accent-colour word in every headline. It must
+   never render italic. */
+em {
+  font-style: normal;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--navy);
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--blue) !important;
+  box-shadow: var(--sh-focus);
+}
+
+/* The artifact had no visible keyboard focus at all. Adding one is additive
+   and changes nothing visually until a key is used. */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+a:focus-visible,
+button:focus-visible {
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

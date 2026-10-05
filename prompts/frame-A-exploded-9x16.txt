@@ -1,0 +1,9 @@
+Recompose the reference image as a 9:16 vertical frame. Same exploded hospital vital-signs monitor, same parts, same industrial design, same white and chrome materials, same soft studio lighting, same flat green chroma background (identical green, edge to edge, no gradient, no shadow falling on the background).
+
+Vertical composition: the parts float separated and are stacked DOWN the frame instead of across it. From top to bottom: the rear housing with its carry handle and the green circuit board at about 18% down; the dark LCD panel and the white front bezel at about 32% down; the battery and the articulating arm at about 45% down; the ECG lead cables with red, yellow and green clips, the grey blood-pressure cuff and the coiled SpO2 finger sensor at about 58% down; the chrome pole and the five-star rolling base lowest at about 72% down, already upright and leading the descent.
+
+Everything sits inside the middle band. The top 10% and the bottom 22% are empty green. The parts are horizontally centred, spread no wider than 80% of the frame width, with clear green between each piece so no two parts touch or overlap.
+
+Same camera, same three-quarter perspective, same scale relationship between the parts, same photoreal product-render quality as the reference. No text, no logos, no labels, no people, no floor, no cast shadows on the background.
+
+Avoid: any object in the bottom 22%, parts touching the frame edges, a horizontal or diagonal layout, colour cast on the green, motion blur, duplicated parts.

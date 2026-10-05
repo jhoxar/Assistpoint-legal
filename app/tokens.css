@@ -1,0 +1,160 @@
+/* ---------------------------------------------------------------------------
+   Design tokens — transcribed from the decoded artifact.
+
+   The artifact had ZERO custom properties: every value was a hex literal
+   repeated across 604 inline style attributes. These are those values, named.
+   Nothing here is a new design decision; the frequency counts in the comments
+   are from the audit and mark which values are load-bearing.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Brand ---------------------------------------------------------------- */
+  --navy: #0b1f3a;         /* 85×  body text, primary button, headlines      */
+  --blue: #0877d1;         /* 120× links, focus ring, every active state     */
+  --sky: #7cc8ff;          /* 46×  labels and accents on dark                */
+  --deep: #071d3f;         /* 12×  footer, gradient end stop                 */
+  --mid: #0b2a55;          /* 15×  gradient mid stop, "done" step dot        */
+  --grad-origin: #0f4c8a;  /* 8×   radial gradient origin                    */
+
+  /* Surfaces and lines --------------------------------------------------- */
+  --surface-2: #f7fafd;    /* 18×  alternating section background           */
+  --border: #dfe8f2;       /* 34×  default card border, header rule         */
+  --border-soft: #cfe0f1;  /* 28×  icon tiles, inputs, ghost buttons        */
+  --blue-50: #eaf2fb;      /* 20×  idle icon tile, nav pill                 */
+  --divider: #eef3f8;      /* 10×  inner hairlines                          */
+  --cell-active: #eaf4fd;  /* active comparison cell                        */
+  --track: #e8eef5;        /* segmented control track                       */
+  --photo-bg: #e7eef5;     /* team photo placeholder                        */
+  --row-hover: #f3f7fb;    /* dropdown row hover                            */
+  --num-active: #d6ecff;   /* active RCM stage numeral                      */
+
+  /* Text ----------------------------------------------------------------- */
+  --text-2: #3b4f66;       /* 29×  secondary copy                           */
+  --text-3: #33475f;       /* 6×   body copy, RCM + hospital pages          */
+  --on-dark: #c9dcee;      /* 15×  copy on dark panels                      */
+  --on-dark-bright: #d6e7f5;
+  --meta: #5b6d82;
+  --muted: #9fb4cc;
+  --note: #6c7c8e;
+
+  /* Accessibility corrections to inherited values. The artifact's palette
+     fails WCAG AA in three places for small bold text; these are the nearest
+     passing values, kept as separate tokens so the brand colours above stay
+     exactly as the artifact defined them.
+       --blue        #0877d1 on #f7fafd = 4.39:1  ->  --blue-ink  4.51:1
+       --muted       #9fb4cc on #ffffff = 2.13:1  ->  --muted-ink 4.51:1
+       --num-active  #d6ecff on #0877d1 = 3.79:1  ->  #fff        4.60:1 */
+  --blue-ink: #0775ce;
+  /* Small bold blue on the pale blue chip ground (#eaf2fb) needs a touch
+     more than --blue-ink: 4.18:1 -> 4.57:1. */
+  --blue-ink-strong: #066fc3;
+  --muted-ink: #6a7888;
+
+  /* Pale hero radial, three stops ---------------------------------------- */
+  --pale-1: #cfe6fb;
+  --pale-2: #eef6fd;
+  --pale-3: #fafcfe;
+
+  /* Mobile hero vertical wash -------------------------------------------- */
+  --wash-1: #e6f1fb;
+  --wash-2: #f5f9fd;
+
+  /* Motion ---------------------------------------------------------------
+     The artifact uses exactly one custom easing curve, everywhere.          */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Layout --------------------------------------------------------------- */
+  --maxw: 1200px;
+  --gutter: clamp(20px, 5vw, 24px);     /* on every section, no exception    */
+  --section-y: clamp(56px, 11vw, 110px);
+
+  /* Type scale — verbatim, including the mixed-unit clamp() middles.
+     Those are valid and must not be "normalised" to pure vw.               */
+  --fs-hero-d: clamp(44px, 5.4vw, 76px);
+  --fs-hero-m: clamp(36px, 10vw, 48px);
+  --fs-h1: clamp(38px, 3vw + 26px, 60px);
+  --fs-h2: clamp(32px, 3.6vw, 46px);
+  --fs-h2-connected: clamp(34px, 3.2vw + 26px, 64px);
+  --fs-h2-wide: clamp(32px, 3vw + 24px, 58px);
+  --fs-h2-focus: clamp(32px, 2.8vw + 22px, 54px);
+  --fs-h2-lg: clamp(34px, 3.8vw, 48px);
+  --fs-h2-md: clamp(30px, 3.4vw, 42px);
+  --fs-h2-sm: clamp(28px, 3vw, 36px);
+  --fs-name: clamp(36px, 4.2vw, 54px);
+  --fs-card-xl: clamp(30px, 5vw, 40px);
+  --fs-card-lg: clamp(26px, 2.8vw, 32px);
+  --fs-card-md: clamp(24px, 5vw, 30px);
+  --fs-card-sm: clamp(24px, 5vw, 28px);
+  --fs-step-d: clamp(13px, 1.3vw, 17px);
+  --fs-step-care: clamp(12px, 1.1vw, 16px);
+
+  /* Radii ----------------------------------------------------------------- */
+  --r-sm: 8px;
+  --r-tile: 10px;          /* 32× — the most common radius                   */
+  --r-md: 12px;
+  --r-lg: 14px;
+  --r-xl: 16px;            /* 20×                                            */
+  --r-2xl: 20px;
+  --r-3xl: 24px;
+  --r-pill: 999px;         /* 22×                                            */
+
+  /* Elevation — verbatim strings -------------------------------------------
+     Note the 4-digit alpha suffixes; these are 8-digit hex, not rgba().     */
+  --sh-panel: 0 40px 80px -40px #0b1f3a99;   /* dark CTA panels, 6×          */
+  --sh-lift: 0 30px 60px -30px #0b1f3a55;    /* card hover, 5×               */
+  --sh-rest: 0 1px 2px #0b1f3a08;            /* card at rest, 5×             */
+  --sh-btn: 0 14px 30px -14px #0b1f3a99;     /* primary button, 5×           */
+  --sh-btn-dark: 0 14px 30px -14px #00000066;
+  --sh-header-cta: 0 10px 24px -12px #0b1f3a99;
+  --sh-dot: 0 0 0 3px #0877d122;             /* eyebrow dot halo             */
+  --sh-badge: 0 8px 20px -8px #0b1f3a66;
+  --sh-pill: 0 8px 24px -12px #0b1f3a40;
+  --sh-frame: 0 40px 80px -40px #0b1f3a66;
+  --sh-drawer: 0 30px 40px -24px #0b1f3a40;
+  --sh-dropdown: 0 1px 2px #0b1f3a0a, 0 24px 48px -24px #0b1f3a40;
+  --sh-pillars: 0 30px 60px -40px #0b1f3a55;
+  --sh-seg: inset 0 1px 2px #0b1f3a0f;
+  --sh-seg-thumb: 0 2px 8px -2px #0b1f3a33;
+  --sh-focus: 0 0 0 4px #0877d122;
+
+  /* The two grid textures. This is the artifact's only "texture" — there is
+     no SVG noise filter anywhere in it.                                     */
+  --grid-dark: linear-gradient(#ffffff0a 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
+  --grid-light: linear-gradient(#0877d10f 1px, transparent 1px),
+    linear-gradient(90deg, #0877d10f 1px, transparent 1px);
+}
+
+/* Keyframes — all ten, verbatim. `grow` and `pulse` were declared but never
+   referenced in the artifact and are dropped. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-3%, 2%) scale(1.06); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 6px #0877d133; }
+  50% { box-shadow: 0 0 0 12px #0877d111; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -100; }
+}
+@keyframes shimmer {
+  0%, 100% { text-shadow: 0 0 0 #7cc8ff00, 0 0 18px #7cc8ff33; }
+  50% { text-shadow: 0 0 2px #ffffff88, 0 0 28px #7cc8ffaa; }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

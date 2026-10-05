@@ -1,0 +1,13 @@
+A hospital vital-signs monitor assembles itself from loose parts, filmed as a clean product animation against a flat green chroma background. The camera is locked off and never moves.
+
+The parts begin scattered and floating, stacked down the frame: the rear housing and circuit board highest, then the LCD panel and white front bezel, then the battery and the articulating arm, then the ECG lead cables, the blood-pressure cuff and the coiled SpO2 finger sensor, with the chrome pole and the five-star rolling base lowest.
+
+The motion runs top to bottom. Everything drifts downward together. The five-star base and the chrome pole lead the descent, settle at the bottom of the frame and stand upright. The pole rises into place. The articulating arm couples onto the pole. The housing, circuit board, battery, LCD panel and front bezel close in on one another and seal into a single monitor body, which mounts onto the arm. Finally the blood-pressure cuff, the SpO2 finger sensor and the ECG lead cables plug in and settle with weight, swinging slightly and coming to rest.
+
+The assembled machine ends small and centred in the bottom third of the frame, completely still. Its screen switches on and shows a cyan ECG waveform.
+
+The upper two thirds of the frame stay empty flat green for the whole shot — nothing passes through that space after the first moment, and nothing is there at the end.
+
+Smooth, weighted, mechanical motion. No camera move, no zoom, no pan. Photoreal product-render quality, soft studio lighting, consistent flat green background throughout.
+
+Avoid: camera movement, the machine drifting upward, parts remaining in the upper two thirds at the end, text, logos, people, floor, shadows on the background, flicker, the green background changing shade.

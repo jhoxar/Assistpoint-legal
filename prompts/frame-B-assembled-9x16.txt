@@ -1,0 +1,11 @@
+Recompose the reference image as a 9:16 vertical frame. Same fully assembled hospital vital-signs monitor on its rolling pedestal, same industrial design, same white and chrome materials, same soft studio lighting, same flat green chroma background (identical green, edge to edge, no gradient, no shadow falling on the background).
+
+CRITICAL — the machine must be SMALL and sit LOW. The whole machine, from the top of its carry handle to the castors of its five-star base, fits entirely inside the BOTTOM THIRD of the frame. Concretely: the top of the carry handle is at 67% down from the top edge, the monitor screen is centred around 76% down, the chrome pole runs from 82% to 92%, and the castors rest at 97% down. The machine is horizontally centred and no wider than 55% of the frame width.
+
+The ENTIRE UPPER 65% OF THE FRAME IS COMPLETELY EMPTY FLAT GREEN — no machine, no parts, no cables, no shadow, nothing whatsoever. That space carries overlaid headline text and must stay clean.
+
+The grey blood-pressure cuff hangs on the pole and the SpO2 finger sensor and ECG lead cables with red, yellow and green clips are plugged in and hang close to the pole, all of them below 70% down. The screen is on, showing the same cyan ECG waveform on a dark panel.
+
+Same three-quarter perspective and same photoreal product-render quality as the reference, just smaller in frame and pushed to the bottom. No text, no logos, no labels, no people, no floor, no cast shadows on the background.
+
+Avoid: anything at all above 65% down, a large machine, the machine filling the frame, the machine centred vertically, a wide or horizontal composition, colour cast on the green, motion blur.
