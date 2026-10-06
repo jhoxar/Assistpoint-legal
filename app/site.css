@@ -526,11 +526,20 @@
     inset: auto;
     order: 2;
     flex: none;
-    height: clamp(280px, 44svh, 430px);
     width: 100%;
-    /* `cover` anchored to the bottom crops the plate's deliberately empty
-       upper band — the headroom the prompt reserved for overlaid text, which
-       this layout does not need because the copy sits above the video. */
+    /* The height MUST track the width, not the viewport.
+       Under `cover` the plate is scaled to the box width, so its rendered
+       height is 1.778x the box width. Pinning the box to a viewport height
+       (the earlier `clamp(280px, 44svh, 430px)`) decoupled the two: at 390px
+       the window showed the bottom 54% of the plate, but at 626px only 33%,
+       which starts 19% inside the machine and decapitates the monitor.
+       A square box shows the bottom 56.25% at every width — the machine
+       begins at 48%, so it always clears with headroom. */
+    aspect-ratio: 1 / 1;
+    /* Above ~560px a full-bleed square would tower over the copy, so the
+       plate centres instead of growing. Keeps the crop ratio identical. */
+    max-width: 560px;
+    align-self: center;
     object-fit: cover;
     object-position: center bottom;
   }

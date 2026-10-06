@@ -97,6 +97,30 @@ test.describe("hero video", () => {
     }
   });
 
+  test("the mobile plate always frames the whole machine", async ({ page }, info) => {
+    test.skip(info.project.name === "desktop", "the stacked band is a sub-760 layout");
+    await page.goto("/");
+    await page.waitForTimeout(2500);
+
+    const seen = await page.evaluate(() => {
+      const v = document.querySelector(".hero-media") as HTMLVideoElement;
+      const box = v.getBoundingClientRect();
+      const pw = v.videoWidth || 1080;
+      const ph = v.videoHeight || 1920;
+      // object-fit: cover scales to the larger ratio; object-position bottom
+      // keeps the bottom slice. Return where that slice starts in the plate.
+      const scale = Math.max(box.width / pw, box.height / ph);
+      return 1 - box.height / (ph * scale);
+    });
+
+    // The assembled monitor occupies roughly 48%-97% of the plate's height.
+    // Tying the band to a viewport height instead of its own width made this
+    // drift with viewport width — at 626px the window opened at 66%, cutting
+    // the monitor's head off entirely.
+    expect(seen, `crop window opens at ${(seen * 100).toFixed(1)}% of the plate, inside the machine`)
+      .toBeLessThan(0.46);
+  });
+
   test("the reveal ladder completes and the copy ends visible", async ({ page }) => {
     await page.goto("/");
     const h1 = page.locator(".hero-h1");
