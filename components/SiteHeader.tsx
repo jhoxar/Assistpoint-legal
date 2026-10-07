@@ -59,11 +59,17 @@ export default function SiteHeader() {
     return () => ro.disconnect();
   }, []);
 
-  /* Close both on navigation. */
-  useEffect(() => {
+  /* Close both on navigation. Adjusting during render is React's documented
+     pattern for state derived from a changing value, and it is better than the
+     effect this replaces: the menu is painted closed together with the new
+     route rather than one frame after it. Nothing here synchronises with an
+     external system, so there was never a reason for an effect. */
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
     setMenuOpen(false);
     setDrawerOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!menuOpen && !drawerOpen) return;

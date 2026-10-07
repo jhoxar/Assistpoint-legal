@@ -38,7 +38,6 @@ function grab(name) {
   if (start === -1) throw new Error(`not found: ${name}`);
   let i = start + head.length;
   const open = src[i];
-  const close = open === "[" ? "]" : "}";
   if (open !== "[" && open !== "{") throw new Error(`${name} is not a literal`);
 
   // Walk to the matching bracket, skipping over string contents so that a

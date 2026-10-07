@@ -44,9 +44,16 @@ export default function HomeHero() {
     if (reduced) {
       // The artifact let the video autoplay regardless and only suppressed
       // the transitions. Honour the preference properly: show the end state.
+      //
+      // This is the external-system case the rule is meant to permit: `reduced`
+      // comes from matchMedia, which cannot be read during render without
+      // breaking SSR, so the end state has to be set from here. The lint rule
+      // cannot see that the setState follows an external read.
+      /* eslint-disable react-hooks/set-state-in-effect */
       el.pause();
       setStep(5);
       setReady(true);
+      /* eslint-enable react-hooks/set-state-in-effect */
       return;
     }
 
