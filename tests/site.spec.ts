@@ -202,3 +202,108 @@ test.describe("no page leaks internal notes", () => {
     }
   });
 });
+
+/* The three defects the client reported on the live site. Each of them was a
+   silent CSS fault that no existing test could see, so each gets a geometry
+   assertion rather than a screenshot. */
+test.describe("layout regressions", () => {
+  test("the three specialty tiles share one frame and one row rhythm", async ({ page }) => {
+    await page.goto("/");
+    const cards = await page.evaluate(() =>
+      [...document.querySelectorAll(".tile-card")].map((c) => {
+        const base = c.getBoundingClientRect();
+        const rel = (sel: string) => {
+          const el = c.querySelector(sel);
+          return el ? Math.round(el.getBoundingClientRect().top - base.top) : null;
+        };
+        const lnk = c.querySelector(".lnk");
+        return {
+          // Cards that wrap onto a second row are a separate band; only cards
+          // sitting side by side are expected to agree.
+          band: Math.round(base.top + window.scrollY),
+          cardH: Math.round(base.height),
+          mediaH: Math.round(c.querySelector(".media-frame")!.getBoundingClientRect().height),
+          titleTop: rel(".t"),
+          linkBottom: lnk ? Math.round(lnk.getBoundingClientRect().bottom - base.top) : null,
+        };
+      }),
+    );
+    expect(cards).toHaveLength(3);
+
+    const bands = new Map<number, typeof cards>();
+    for (const c of cards) {
+      const key = [...bands.keys()].find((k) => Math.abs(k - c.band) <= 4) ?? c.band;
+      bands.set(key, [...(bands.get(key) ?? []), c]);
+    }
+    const spread = (xs: number[]) => Math.max(...xs) - Math.min(...xs);
+    for (const row of bands.values()) {
+      if (row.length < 2) continue;
+      expect(spread(row.map((c) => c.mediaH)), "image heights differ").toBeLessThanOrEqual(1);
+      expect(spread(row.map((c) => c.cardH)), "card heights differ").toBeLessThanOrEqual(1);
+      expect(spread(row.map((c) => c.titleTop!)), "titles sit on different lines").toBeLessThanOrEqual(1);
+      const links = row.filter((c) => c.linkBottom !== null).map((c) => c.linkBottom!);
+      if (links.length > 1)
+        expect(spread(links), "links sit on different lines").toBeLessThanOrEqual(2);
+    }
+  });
+
+  for (const route of ["/", "/hospital"]) {
+    test(`${route} — the sticky heading never covers the rows it introduces`, async ({ page }) => {
+      await page.goto(route);
+      const worst = await page.evaluate(async () => {
+        // html carries scroll-behavior: smooth, which turns scrollTo into an
+        // animation and makes every sampled rect a position the page has not
+        // reached yet.
+        document.documentElement.style.scrollBehavior = "auto";
+        const head = document.querySelector<HTMLElement>(".sticky-head")!;
+        const grid = head.parentElement!;
+        const sibling = [...grid.children].find((c) => c !== head)!;
+        const targets = [...sibling.querySelectorAll(".diff-row, .card"), sibling];
+        const gridTop = grid.getBoundingClientRect().top + window.scrollY;
+        const gridH = grid.getBoundingClientRect().height;
+        let worst = 0;
+        for (let off = -300; off < gridH + 400; off += 60) {
+          window.scrollTo(0, Math.max(0, gridTop + off));
+          await new Promise((r) => setTimeout(r, 20));
+          const a = head.getBoundingClientRect();
+          for (const t of targets) {
+            const s = t.getBoundingClientRect();
+            const oy = Math.min(a.bottom, s.bottom) - Math.max(a.top, s.top);
+            const ox = Math.min(a.right, s.right) - Math.max(a.left, s.left);
+            if (oy > 1 && ox > 1) worst = Math.max(worst, Math.round(ox * oy));
+          }
+        }
+        return worst;
+      });
+      expect(worst, `the sticky heading overlaps content on ${route}`).toBe(0);
+    });
+  }
+
+  test("every portrait frame is tall enough to hold a whole head", async ({ page }) => {
+    await page.goto("/team");
+    const frames = await page.evaluate(() =>
+      [...document.querySelectorAll(".team-photo, .lead-photo")].map((f) => {
+        const img = f.querySelector("img")!;
+        const r = f.getBoundingClientRect();
+        // object-fit: cover scales to the larger ratio, so this is how much of
+        // the source's height survives the crop. The sources are 400x600; a
+        // frame wider than 2/3 throws the bottom of every face away.
+        const scale = Math.max(r.width / img.naturalWidth, r.height / img.naturalHeight);
+        return {
+          name: img.alt,
+          ratio: r.width / r.height,
+          visible: img.naturalHeight ? r.height / (img.naturalHeight * scale) : null,
+        };
+      }),
+    );
+    expect(frames.length).toBeGreaterThan(0);
+    for (const f of frames) {
+      expect(f.ratio, `${f.name}'s frame is landscape`).toBeLessThan(1);
+      expect(Math.abs(f.ratio - 0.8), `${f.name}'s frame is not 4/5`).toBeLessThan(0.02);
+      // Only assertable when the hot-linked headshot actually reached us.
+      if (f.visible !== null)
+        expect(f.visible, `${f.name} is cropped to ${(f.visible * 100).toFixed(0)}%`)
+          .toBeGreaterThanOrEqual(0.83);
+    }
+  });
+});

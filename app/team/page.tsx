@@ -29,7 +29,7 @@ export default function TeamPage() {
           <div className="lead-panel">
             <div className="grid-tex" aria-hidden="true" />
             <div className="media-frame lead-photo">
-              <img src={copy.team.leadImg} alt={copy.team.leadName} loading="lazy" />
+              <img src={copy.team.leadImg} alt={copy.team.leadName} loading="lazy" width={400} height={600} />
             </div>
             <div>
               <p className="eyebrow on-dark">

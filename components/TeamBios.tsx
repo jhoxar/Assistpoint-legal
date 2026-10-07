@@ -14,7 +14,7 @@ export default function TeamBios() {
         return (
           <article className="team-card" key={m.name}>
             <div className="media-frame team-photo">
-              <img src={m.img} alt={m.name} loading="lazy" />
+              <img src={m.img} alt={m.name} loading="lazy" width={400} height={600} />
             </div>
             <div className="team-body">
               <h3 className="h3" style={{ fontSize: 24 }}>{m.name}</h3>

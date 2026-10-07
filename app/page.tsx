@@ -115,8 +115,8 @@ export default function HomePage() {
             <p className="lede" style={{ marginTop: 20, marginBottom: 0 }}>{copy.home.specLede}</p>
           </header>
 
-          <div className="grid g-380">
-            <Link href={ROUTES.rcm} className="card tile-card tile-tall">
+          <div className="grid g-380 tile-grid">
+            <Link href={ROUTES.rcm} className="card tile-card">
               <span className="media-frame media-strip">
                 <img src={img.infusion} alt="Infusion center" loading="lazy" width={1920} height={1072} />
               </span>

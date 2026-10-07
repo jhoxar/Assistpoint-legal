@@ -359,7 +359,12 @@
   box-shadow: var(--sh-panel);
 }
 .lead-panel > * { position: relative; z-index: 1; }
-.lead-photo { aspect-ratio: 4 / 4.6; border-radius: var(--r-2xl); }
+/* Every portrait on this page is a 400x600 headshot. A frame wider than 2/3
+   makes `cover` throw away the bottom of the source; at the 4/3 this started
+   with, only the top 50% survived and the lower half of each face went with it.
+   4/5 keeps the top 83% — head, shoulders and upper chest — and `top` keeps the
+   photographer's headroom instead of trimming it from both ends. */
+.lead-photo { aspect-ratio: 4 / 5; border-radius: var(--r-2xl); }
 .lead-photo img { object-position: top; }
 @media (max-width: 759.98px) { .lead-panel { grid-template-columns: 1fr; } }
 
@@ -378,7 +383,7 @@
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
 .team-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lift); border-color: var(--blue); }
-.team-photo { aspect-ratio: 4 / 3; border-radius: 0; }
+.team-photo { aspect-ratio: 4 / 5; border-radius: 0; }
 .team-photo img { object-position: top; }
 .team-body { padding: 26px 24px; }
 .team-role { font-size: 13px; font-weight: 700; color: var(--blue); margin-top: 6px; }

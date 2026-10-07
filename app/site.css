@@ -636,6 +636,11 @@
 .g-320 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; }
 .g-340 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
 .g-380 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+/* Used by the home "difference" section and the hospital "how we help" section.
+   It was missing: both grids fell back to grid-template-columns: none, collapsed
+   to a single column at every width, and their sticky headings then travelled
+   straight over the rows they introduce. */
+.g-400 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); }
 .g-420 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
 .g-440 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(32px, 6vw, 64px); }
 .g-460 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(32px, 6vw, 64px); }
@@ -816,14 +821,26 @@
 }
 .glass:hover { border-color: #7cc8ff66; background: #ffffff0d; }
 
-/* --- Sticky heading columns ----------------------------------------------- */
-.sticky-head { position: sticky; top: 140px; }
-.sticky-head.lower { top: 120px; }
-/* The artifact never disabled these on mobile, where the header is 66px and
-   the column would float 140px down the page. */
-@media (max-width: 759.98px) {
-  .sticky-head,
-  .sticky-head.lower { position: static; top: auto; }
+/* --- Sticky heading columns ------------------------------------------------
+   Opt-in, not opt-out. A sticky heading only earns its keep while a second
+   column is scrolling past it; alone in one column it pins at top:140px and
+   rides straight over the rows it is supposed to introduce — measured at up to
+   1200x129px of overlap on the home page.
+
+   The artifact released it at 760px, which was the mobile breakpoint rather
+   than the width where the grid actually splits. 903px is that width, measured
+   via `node scripts/measure.mjs --find-breakpoint`: two 400px tracks plus a
+   clamp(32px, 6vw, 64px) gap inside min(1200px, 100vw - 2 * gutter).
+
+   `position` is set on the single class only, never on `.sticky-head.lower`: a
+   media query adds no specificity, so a (0,2,0) `position: static` in the base
+   rule would outrank the (0,1,0) `position: sticky` below it and silently kill
+   stickiness on /hospital at every width. `.lower` varies the offset, nothing
+   else.                                                                       */
+.sticky-head { position: static; top: auto; }
+@media (min-width: 903px) {
+  .sticky-head { position: sticky; top: 140px; }
+  .sticky-head.lower { top: 120px; }
 }
 
 /* --- Media ---------------------------------------------------------------- */
@@ -965,18 +982,47 @@
 }
 .card-link:hover { gap: 14px; color: var(--navy); }
 
-/* --- Home: specialty tiles ------------------------------------------------ */
+/* --- Home: specialty tiles -------------------------------------------------
+   The artifact singled the first tile out with `grid-row: span 2` and a 16/11
+   frame. All three sources are 1920x1072, so that made one card taller than its
+   neighbours, cropped it 19% horizontally, and pushed its title, copy and link
+   off the lines the other two sat on. One frame for all three now.
+
+   The three tiles do not carry the same copy — the hospital tile has no
+   description, the practice tile has no link — so the rows cannot be left to
+   content order, which is what dropped "Explore Hospital Support" onto the
+   description line. Subgrid gives the three cards one shared set of row tracks
+   and every part is placed in a named track, so a part that does not exist
+   leaves its track empty instead of pulling the rest of the card up.          */
 .tile-card { padding: 0; overflow: hidden; }
 .tile-card .t,
 .tile-card .d,
 .tile-card .lnk { padding-inline: 26px; }
 .tile-card .lnk { padding-bottom: 26px; }
 .tile-card .d { margin-bottom: 14px; }
-.tile-card .media-frame { border-radius: 0; display: block; }
-/* The first tile spans two rows on a wide grid, as in the artifact. */
-@media (min-width: 760px) {
-  .tile-tall { grid-row: span 2; }
-  .tile-tall .media-frame { aspect-ratio: 16 / 11; }
+
+.tile-grid {
+  grid-template-rows: auto auto 1fr auto;
+  /* Repeats the same four tracks for cards that wrap below the first band, so
+     a 2-up or 1-up layout keeps the rhythm a 3-up one has. */
+  grid-auto-rows: auto auto 1fr auto;
+}
+.tile-grid .tile-card {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+}
+.tile-card .media-frame { border-radius: 0; display: block; grid-row: 1; }
+.tile-card .t   { grid-row: 2; }
+.tile-card .d   { grid-row: 3; }
+.tile-card .lnk { grid-row: 4; align-self: end; justify-self: start; }
+
+/* Subgrid is Baseline, but a card that loses it should still bottom-align its
+   link rather than float it under the title. */
+@supports not (grid-template-rows: subgrid) {
+  .tile-grid .tile-card { display: flex; flex-direction: column; }
+  .tile-card .d   { flex: 1; }
+  .tile-card .lnk { margin-top: auto; }
 }
 
 /* --- Home: difference rows ------------------------------------------------ */
